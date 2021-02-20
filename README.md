@@ -1,2 +1,5 @@
-# debian-system
-Used to install the most common programs in a debian so
+# Debian System
+
+This scripts allow to install basic programs in a minimal Debian S.O. That is to say, a system without desktop or standard system utilities.
+
+
