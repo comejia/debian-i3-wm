@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=JMeter
+Exec=/opt/apache-jmeter/bin/jmeter %U
+Icon=/opt/apache-jmeter/docs/images/jmeter.png
+Terminal=false
+Type=Application
+Categories=Development;
