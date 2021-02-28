@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PyCharm
+Exec=/opt/pycharm/bin/pycharm.sh %f
+Icon=/opt/pycharm/bin/pycharm.svg
+Terminal=false
+Type=Application
+Categories=Development;IDE;
