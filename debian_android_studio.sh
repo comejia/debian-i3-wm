@@ -34,8 +34,7 @@ if [ $(grep -x "$ANDROID_ENV_TITLE" .bashrc | wc -l) -eq 0 ]; then
 	echo '' >> .bashrc
 fi
 
-echo "Logout as root and to run '$ANDROID_INSTALL_PATH/bin/studio.sh' script"
-read -p "Press [ENTER] to continue."
+#ln -s -f $ANDROID_INSTALL_PATH/bin/studio.sh /usr/bin/android-studio
 
 echo "Installing Android Studio...DONE"
 

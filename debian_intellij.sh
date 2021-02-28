@@ -24,8 +24,7 @@ tar -xzvf ideaI*-*.tar.gz -C $INTELLIJ_INSTALL_PATH --strip-components=1
 chown -R $USERNAME:$USERNAME $INTELLIJ_INSTALL_PATH
 rm ideaI*-*.tar.gz
 
-echo "Logout as root and to run '$INTELLIJ_INSTALL_PATH/bin/idea.sh' script"
-read -p "Press [ENTER] to continue."
+#ln -s -f $INTELLIJ_INSTALL_PATH/bin/idea.sh /usr/bin/intellij-idea
 
 echo "Installing IntelliJ Idea...DONE"
 

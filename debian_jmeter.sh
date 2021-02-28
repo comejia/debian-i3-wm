@@ -25,8 +25,8 @@ mv apache-jmeter-$jmeter_version $JMETER_DIR_PATH
 
 chown -R $USERNAME:$USERNAME $JMETER_DIR_PATH
 
-ln -s -f $JMETER_DIR_PATH/bin/jmeter /usr/bin/jmeter
-#ln -s $JMETER_DIR_PATH/bin/jmeter-server /usr/bin/jmeter-server
+#ln -s -f $JMETER_DIR_PATH/bin/jmeter /usr/bin/jmeter
+#ln -s -f $JMETER_DIR_PATH/bin/jmeter-server /usr/bin/jmeter-server
 
 echo "Installing JMeter...DONE"
 
