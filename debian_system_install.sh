@@ -55,7 +55,7 @@ apt-get install -y pulseaudio pavucontrol mpv mediainfo file highlight w3m-img c
 apt-get install -y xbindkeys fonts-noto-color-emoji xbacklight
 
 # Extra tools
-apt-get install -y ranger rsync atool mtp-tools firefox-esr jq
+apt-get install --yes ranger rsync atool mtp-tools firefox-esr jq scrot xclip
 apt-get install --yes libreoffice-writer libreoffice-calc libreoffice-impress
 
 # Windows manager
@@ -86,3 +86,5 @@ exit 0
 # mpt-tools: media transport protocol, detect Android phones. Use mtp-detect command if you have a problem
 # xbindkeys: To control multimedia buttons
 # inxi, neofetch, hardinfo, cpufrequtils: tools to show system hardware and software info
+# scrot: command line screen capture utility
+# xclip: command line interface to X selections ("the clipboard")
