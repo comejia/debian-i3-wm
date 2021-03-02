@@ -197,6 +197,7 @@ bindsym $mod+r exec --no-startup-id xterm -e ranger
 
 # take screenshot
 bindsym Print --release exec --no-startup-id screenshot
+bindsym $mod+Print --release exec --no-startup-id screenshot fullscreen
 
 # set custom colors
 set_from_resource $background i3bar_background #000000
