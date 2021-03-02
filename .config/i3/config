@@ -195,6 +195,8 @@ bindsym $mod+m mode "$mode_system"
 # start file manager (ranger)
 bindsym $mod+r exec --no-startup-id xterm -e ranger
 
+# take screenshot
+bindsym Print --release exec --no-startup-id screenshot
 
 # set custom colors
 set_from_resource $background i3bar_background #000000
