@@ -18,6 +18,10 @@ wget -c https://releases.hashicorp.com/vagrant/${vagrant_version}/vagrant_${vagr
 
 apt install --yes ./vagrant_${vagrant_version}_x86_64.deb
 
+# Installing from Debian packages
+#apt-get update
+#apt-get install --yes -t testing vagrant vagrant-libvirt libvirt-daemon-system
+
 echo "Installing Vagrant...DONE"
 
 exit 0
