@@ -19,6 +19,8 @@ if [ $virt -eq 0 ]; then
 fi
 
 apt-get install --no-install-recommends --yes qemu-system qemu-utils libvirt-daemon-system libvirt-clients virtinst
+# Desktop application for managing virtual machines
+#apt-get install --yes virt-manager
 
 adduser $USERNAME libvirt
 adduser $USERNAME libvirt-qemu
