@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case "$1" in
+	fullscreen)
+		scrot -u "$HOME/Pictures/screenshot_%Y-%m-%d_\$wx\$h.png" -e 'xclip -selection clipboard -target image/png -i $f' ;;
+	*)
+		scrot --line width=3,color='white' -s "$HOME/Pictures/screenshot_%Y-%m-%d_\$wx\$h.png" -e 'xclip -selection clipboard -target image/png -i $f'
+esac
+
+exit 0

@@ -2,5 +2,7 @@
 
 for dir in $(ls -d */);
 do
-	cd $dir && git pull && cd ..
+	cd $dir
+	git pull
+	cd ..
 done

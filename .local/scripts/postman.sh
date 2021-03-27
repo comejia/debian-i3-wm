@@ -19,7 +19,7 @@ tar -xzvf postman.tar.gz -C /opt
 
 chown -R $USERNAME:$USERNAME /opt/Postman
 
-ln -s /opt/Postman/Postman /usr/bin/postman
+#ln -s -f /opt/Postman/Postman /usr/bin/postman
 
 echo "Installing Postman...DONE"
 

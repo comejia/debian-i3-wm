@@ -195,6 +195,9 @@ bindsym $mod+m mode "$mode_system"
 # start file manager (ranger)
 bindsym $mod+r exec --no-startup-id xterm -e ranger
 
+# take screenshot
+bindsym Print --release exec --no-startup-id screenshot
+bindsym $mod+Print --release exec --no-startup-id screenshot fullscreen
 
 # set custom colors
 set_from_resource $background i3bar_background #000000
@@ -202,11 +205,11 @@ set_from_resource $background i3bar_background #000000
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        #status_command i3status
-        status_command i3status --config ~/.config/i3status/i3status.conf
+        status_command i3status --config ~/.config/i3status/config
 	position top
 	colors {
 		background $background
 	}
+	separator_symbol "||"
 }
 

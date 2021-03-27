@@ -24,8 +24,7 @@ tar -xzvf pycharm-*.tar.gz -C $PYCHARM_INSTALL_PATH --strip-components=1
 chown -R $USERNAME:$USERNAME $PYCHARM_INSTALL_PATH
 rm pycharm-*.tar.gz
 
-echo "Logout as root and to run '$PYCHARM_INSTALL_PATH/bin/pycharm.sh' script"
-read -p "Press [ENTER] to continue."
+#ln -s -f $PYCHARM_INSTALL_PATH/bin/pycharm.sh /usr/bin/pycharm
 
 echo "Installing PyCharm...DONE"
 
