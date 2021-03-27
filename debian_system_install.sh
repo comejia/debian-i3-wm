@@ -39,7 +39,7 @@ read -p "Press [ENTER] to continue"
 echo "Installing system operating tools..."
 # System tools
 apt-get install -y -t testing live-task-standard
-apt-get install -y build-essential xterm vim git htop curl wget libcanberra0 tree bash-completion ssh fuse
+apt-get install -y build-essential xterm vim git htop curl wget libcanberra0 tree bash-completion ssh ntfs-3g fuse nmap
 
 # Hardware tools
 apt-get install -y inxi neofetch mesa-utils hardinfo xutils usbutils pm-utils cpufrequtils lm-sensors
