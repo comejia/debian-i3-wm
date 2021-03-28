@@ -3,7 +3,7 @@
 set -e
 
 USERNAME=cmejia
-FIDDLER_BIN_NAME=fiddler.AppImage
+FIDDLER_BIN_NAME=fiddler
 
 if [ $(whoami) != "root" ]; then
 	echo "Run this script '$0' as root"
