@@ -19,14 +19,6 @@ fi
 
 apt-get update
 
-echo "Installing google-chrome-stable..."
-apt-get install --yes fonts-liberation # dependency for google-chrome
-
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome.deb
-cd /tmp
-dpkg -i google-chrome.deb
-echo "Installing google-chrome-stable...DONE"
-
 echo "Installing Java 11..."
 apt-get install --yes default-jdk
 echo "Set Java environment variables in bashrc file"
