@@ -17,6 +17,10 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.
 apt-get update
 apt-get install --yes kubelet kubeadm kubectl
 
+# kubectl autocompletion
+kubectl completion bash | tee /etc/bash_completion.d/kubectl > /dev/null
+#echo 'source <(kubectl completion bash)' >> ~/.bashrc
+
 # Minikube
 cd /tmp/
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
