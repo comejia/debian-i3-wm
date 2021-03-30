@@ -10,7 +10,6 @@
 # Add user to sudo
 #usermod -aG sudo cmejia
 
-
 if [ $(whoami) != "root" ] 
 then
 	echo "You need run this script as root"
@@ -26,17 +25,5 @@ echo "export JAVA_HOME=/usr/lib/jvm/default-java >> ~/.bashrc"
 echo "export PATH=\$PATH:\$JAVA_HOME/bin >> ~/.bashrc"
 read -p "Press [ENTER] to continue."
 echo "Installing Java 11...DONE"
-
-echo "Installing Jenkins..."
-wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | apt-key add -
-sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
-    /etc/apt/sources.list.d/jenkins.list'
-apt-get update
-apt-get install --yes jenkins
-systemctl start jenkins.service
-
-echo "Open http://localhost:8080 in a browser to finish the instalation"
-read -p "Press [ENTER] to continue"
-echo "Installing Jenkins...DONE"
 
 exit 0
