@@ -31,6 +31,7 @@ if [ $(grep -x "$ANDROID_ENV_TITLE" .bashrc | wc -l) -eq 0 ]; then
 	echo 'export ANDROID_HOME=$HOME/Android/Sdk' >> .bashrc
 	echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >> .bashrc
 	echo 'export PATH=$PATH:$ANDROID_HOME/tools' >> .bashrc
+	echo 'export PATH=$PATH:$ANDROID_HOME/tools/bin' >> .bashrc
 	echo '' >> .bashrc
 fi
 

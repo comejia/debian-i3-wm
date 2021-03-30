@@ -17,10 +17,23 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.
 apt-get update
 apt-get install --yes kubelet kubeadm kubectl
 
+# kubectl autocompletion
+kubectl completion bash | tee /etc/bash_completion.d/kubectl > /dev/null
+#echo 'source <(kubectl completion bash)' >> ~/.bashrc
+
 # Minikube
 cd /tmp/
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
 dpkg -i minikube_latest_amd64.deb
+
+cd /home/$USERNAME
+MINIKUBE_ENV_TITLE="# Minikube environment variables"
+if [ $(grep -x "$MINIKUBE_ENV_TITLE" .bashrc | wc -l) -eq 0 ]; then
+        echo $MINIKUBE_ENV_TITLE >> .bashrc
+        echo 'export MINIKUBE_IN_STYLE=true' >> .bashrc
+	echo 'export MINIKUBE_WANTUPDATENOTIFICATION=true' >> .bashrc
+        echo '' >> .bashrc
+fi
 
 echo "Installing Kubernetes...DONE"
 
