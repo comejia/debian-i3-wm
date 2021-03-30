@@ -1,14 +1,6 @@
 #!/bin/bash
 
-# Setup git config
-#user=cmejia
-#email=cesarmejia555@yahoo.com.ar
-#git config --global user.name "$user"
-#git config --global user.email "$email"
-#git config --global pull.rebase false
-
-# Add user to sudo
-#usermod -aG sudo cmejia
+set -e
 
 if [ $(whoami) != "root" ] 
 then
