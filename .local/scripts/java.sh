@@ -16,7 +16,7 @@ apt-get install --yes default-jdk
 # at the end of the file.
 JAVA_VARS_TITLE="# JAVA environment variables"
 if [ $(grep -x "$JAVA_VARS_TITLE" ~/.bashrc | wc -l) -eq 0 ]; then
-        echo $JAVA_VARS_TITLE >> ~/.bashrc
+	echo $JAVA_VARS_TITLE >> ~/.bashrc
 	echo 'export JAVA_HOME=/usr/lib/jvm/default-java' >> ~/.bashrc
 	echo 'export PATH=$PATH:$JAVA_HOME/bin' >> ~/.bashrc
 	echo '' >> ~/.bashrc
