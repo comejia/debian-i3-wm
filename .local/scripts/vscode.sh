@@ -4,19 +4,20 @@ set -e
 
 USERNAME=cmejia
 
-if [ $(whoami) != "root" ]; then
+if [ "$(whoami)" != root ]; then
 	echo "Run this script '$0' as root"
 	exit 1
 fi
 
-echo "Installing Visual Studio Code IDE..."
+echo "Installing Visual Studio Code..."
 
 cd /tmp
-wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O vscode.deb
+vscode_filename=vscode.deb
+wget -q 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O $vscode_filename
+apt install --yes ./$vscode_filename
+rm $vscode_filename
 
-apt install --yes ./vscode.deb
-
-echo "Installing Visual Studio Code IDE...DONE"
+echo "Installing Visual Studio Code...DONE"
 
 exit 0
 

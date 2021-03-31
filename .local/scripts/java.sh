@@ -2,24 +2,28 @@
 
 set -e
 
-if [ $(whoami) != "root" ] 
-then
-	echo "You need run this script as root"
+USERNAME=cmejia
+
+if [ "$(whoami)" != root ]; then
+	echo "Run this script '$0' as root"
 	exit 1
 fi
 
-echo "Installing Java 11..."
+echo "Installing Java (default)..."
+
 apt-get update
 apt-get install --yes default-jdk
 
-# Title to find in .bashrc file. If title doesn't exist, it will append 
-# at the end of the file.
-JAVA_VARS_TITLE="# JAVA environment variables"
-if [ $(grep -x "$JAVA_VARS_TITLE" ~/.bashrc | wc -l) -eq 0 ]; then
-	echo $JAVA_VARS_TITLE >> ~/.bashrc
-	echo 'export JAVA_HOME=/usr/lib/jvm/default-java' >> ~/.bashrc
-	echo 'export PATH=$PATH:$JAVA_HOME/bin' >> ~/.bashrc
-	echo '' >> ~/.bashrc
+cd /home/$USERNAME
+# Title to find in ~/.bashrc file. If title doesn't exist, it will append at the end of the file.
+JAVA_VARS_TITLE="# JAVA vars"
+if [ "$(grep -cx "$JAVA_VARS_TITLE" ~/.bashrc)" -eq 0 ]; then
+	echo "$JAVA_VARS_TITLE
+export JAVA_HOME=/usr/lib/jvm/default-java
+export PATH=\$PATH:\$JAVA_HOME/bin
+  " >> ~/.bashrc
 fi
+
+echo "Installing Java (default)...DONE"
 
 exit 0

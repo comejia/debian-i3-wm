@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [ $(whoami) != "root" ] 
-then
-	echo "You need run this script as root"
+if [ "$(whoami)" != "root" ]; then
+	echo "Run this script '$0' as root"
 	exit 1
 fi
 
 echo "Installing certificates..."
-apt-get install -y ca-certificates apt-transport-https
+apt-get update
+apt-get install --yes ca-certificates apt-transport-https
 echo "Installing certificates...DONE"
 
 echo "Updating repositories..."
