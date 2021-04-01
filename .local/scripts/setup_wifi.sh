@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Examples of firmware: firmware-realtek, firmware-atheros, firmware-iwlwifi.
+# Depends on wifi manufacturer
 WIFI_DRIVER=
 
 if [ "$(whoami)" != root ]; then
