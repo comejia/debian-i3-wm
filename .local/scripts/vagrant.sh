@@ -13,10 +13,11 @@ echo "Installing Vagrant..."
 
 cd /tmp
 # Getting latest version
-latest_version=$(wget -qO - https://releases.hashicorp.com/vagrant/ | sed -nE 's|.*>vagrant_(.*?)<.*|\1|p' | head -n 1)
+latest_version=$(wget -qO - https://releases.hashicorp.com/vagrant/ \
+	| sed -nE 's/.*>vagrant_(([0-9])+([.][0-9]+)+)<.*/\1/p' | head -n 1)
 vagrant_filename=vagrant.deb
 wget -q "https://releases.hashicorp.com/vagrant/${latest_version}/vagrant_${latest_version}_x86_64.deb" \
-  -O $vagrant_filename
+	-O $vagrant_filename
 apt install --yes ./$vagrant_filename
 rm $vagrant_filename
 # Installing from Debian packages
