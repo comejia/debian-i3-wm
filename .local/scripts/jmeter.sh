@@ -14,11 +14,12 @@ echo "Installing JMeter..."
 
 cd /tmp
 # Getting latest version
-latest_version=$(wget -qO - https://apache.zero.com.ar//jmeter/binaries/ | sed -nE 's|.*>apache-jmeter-(.*?)\.zip.*|\1|p' | sort | tail -1)
-jmeter_filename=apache-jmeter.zip
-wget -q "https://apache.zero.com.ar//jmeter/binaries/apache-jmeter-${latest_version}.zip" -O $jmeter_filename
-unzip -q $jmeter_filename
-mv "apache-jmeter-${latest_version}" $JMETER_INSTALL_PATH
+latest_version=$(wget -qO - https://apache.zero.com.ar//jmeter/binaries/ \
+	| sed -nE 's/.*>apache-jmeter-(([0-9])+([.][0-9]+)+)\.tgz.*/\1/p' | sort | tail -1)
+jmeter_filename=jmeter.tgz
+wget -q "https://apache.zero.com.ar//jmeter/binaries/apache-jmeter-${latest_version}.tgz" -O $jmeter_filename
+mkdir -p $JMETER_INSTALL_PATH
+tar -xzf $jmeter_filename -C $JMETER_INSTALL_PATH --strip-components=1
 chown -R $USERNAME:$USERNAME $JMETER_INSTALL_PATH
 rm $jmeter_filename
 #ln -s -f $JMETER_INSTALL_PATH/bin/jmeter /usr/local/bin/jmeter
