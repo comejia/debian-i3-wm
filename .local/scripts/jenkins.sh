@@ -2,9 +2,10 @@
 
 set -e
 
-if [ $(whoami) != "root" ] 
-then
-	echo "You need run this script as root"
+USERNAME=cmejia
+
+if [ "$(whoami)" != root ]; then
+	echo "Run this script '$0' as root"
 	exit 1
 fi
 
@@ -16,8 +17,10 @@ apt-get update
 apt-get install --yes jenkins
 systemctl start jenkins.service
 
-echo "Open http://localhost:8080 in a browser to finish the instalation"
-read -p "Press [ENTER] to continue"
+cd /home/$USERNAME
+echo "######## Jenkins ########
+  Open http://localhost:8080 in a browser to finish the installation
+  " >> ./post_install.txt
 
 echo "Installing Jenkins...DONE"
 

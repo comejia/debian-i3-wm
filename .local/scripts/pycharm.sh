@@ -5,27 +5,27 @@ set -e
 USERNAME=cmejia
 PYCHARM_INSTALL_PATH=/opt/pycharm
 
-if [ $(whoami) != "root" ]; then
+if [ "$(whoami)" != root ]; then
 	echo "Run this script '$0' as root"
 	exit 1
 fi
 
-echo "Installing PyCharm Idea..."
+echo "Installing PyCharm..."
 
-echo "Download PyCharm from 'https://www.jetbrains.com/pycharm/download/#section=linux' in ~/Download folder"
-read -p "Press [ENTER] after to download app"
-
-cd /home/$USERNAME/Downloads
+cd /home/$USERNAME
 # Check if app exists
-[[ ! -e $(ls | grep pycharm-*.tar.gz) ]] && echo "You have not downloaded PyCharm yet" && exit 1
-
-mkdir -p $PYCHARM_INSTALL_PATH
-tar -xzvf pycharm-*.tar.gz -C $PYCHARM_INSTALL_PATH --strip-components=1
-chown -R $USERNAME:$USERNAME $PYCHARM_INSTALL_PATH
-rm pycharm-*.tar.gz
-
-#ln -s -f $PYCHARM_INSTALL_PATH/bin/pycharm.sh /usr/bin/pycharm
-
+if [ ! -e "$(ls ./Downloads/ | grep "pycharm-*.tar.gz")" ]; then
+  echo "######## PyCharm ########
+  Download PyCharm from 'https://www.jetbrains.com/pycharm/download/#section=linux' in ~/Download folder
+  Then rerun pycharm.sh script.
+  " >> ./post_install.txt
+else
+  mkdir -p $PYCHARM_INSTALL_PATH
+  tar -xzf pycharm-*.tar.gz -C $PYCHARM_INSTALL_PATH --strip-components=1
+  chown -R $USERNAME:$USERNAME $PYCHARM_INSTALL_PATH
+  rm ./Downloads/pycharm-*.tar.gz
+  #ln -s -f $PYCHARM_INSTALL_PATH/bin/pycharm.sh /usr/local/bin/pycharm
+fi
 echo "Installing PyCharm...DONE"
 
 exit 0

@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [ $(whoami) != "root" ] 
-then
-	echo "You need run this script as root"
+if [ "$(whoami)" != "root" ]; then
+	echo "Run this script '$0' as root"
 	exit 1
 fi
 
 echo "Installing certificates..."
-apt-get install -y ca-certificates apt-transport-https
+apt-get update
+apt-get install --yes ca-certificates apt-transport-https
 echo "Installing certificates...DONE"
 
 echo "Updating repositories..."
@@ -46,10 +46,13 @@ apt-get install -y inxi neofetch mesa-utils hardinfo xutils usbutils pm-utils cp
 
 # Firmware tools
 apt-get install -y -t testing firmware-linux # firmware-linux-nonfree firmware-misc-nonfree
-#apt-get install --yes -t testing firmware-realtek # firmware-atheros
+#apt-get install --yes -t testing firmware-realtek #firmware-atheros #firmware-iwlwifi
 
 # Multimedia tools
 apt-get install -y pulseaudio pavucontrol mpv mediainfo file highlight w3m-img caca-utils atool poppler-utils ffmpeg ffmpegthumbnailer xpdf feh
+apt-get install --yes -t testing simplescreenrecorder # Feature-rich screen recorder for X11 and OpenGL
+apt-get install --yes -t testing vlc # Multimedia player and streamer
+apt-get install --yes asciinema # Record and share your terminal sessions
 
 # Miscellaneous tools
 apt-get install -y xbindkeys fonts-noto-color-emoji xbacklight
