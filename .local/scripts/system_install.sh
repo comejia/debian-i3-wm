@@ -1,8 +1,11 @@
 #!/bin/bash
 
 if [ "$(whoami)" != "root" ]; then
-	echo "Run this script '$0' as root"
-	exit 1
+  if [ -z "$(sudo -nl 2> /dev/null)" ]; then
+    echo "This script '$0' should be run with sudo privileges or as root"
+    echo "Run as root 'user_to_sudoers.sh' script to add user to sudoers"
+    exit 1
+  fi
 fi
 
 echo "Installing certificates..."

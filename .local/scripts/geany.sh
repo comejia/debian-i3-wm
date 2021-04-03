@@ -11,8 +11,8 @@ fi
 
 echo "Installing geany..."
 
-apt-get update
-apt-get install --yes geany #geany-plugins
+sudo apt-get update
+sudo apt-get install --yes geany #geany-plugins
 
 echo "Installing geany...DONE"
 

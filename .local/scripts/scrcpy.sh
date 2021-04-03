@@ -9,8 +9,8 @@ fi
 
 echo "Installing scrcpy..."
 
-apt-get update
-apt-get install --yes -t testing scrcpy
+sudo apt-get update
+sudo apt-get install --yes -t testing scrcpy
 
 echo "Installing scrcpy...DONE"
 
