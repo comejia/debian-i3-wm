@@ -6,8 +6,8 @@ USERNAME=cmejia
 PYCHARM_INSTALL_PATH=/opt/pycharm
 
 if [ "$(whoami)" != root ]; then
-	echo "Run this script '$0' as root"
-	exit 1
+  echo "Run this script '$0' as root"
+  exit 1
 fi
 
 echo "Installing PyCharm..."
@@ -20,11 +20,11 @@ if [ ! -e "$(ls ./Downloads/ | grep "pycharm-*.tar.gz")" ]; then
   Then rerun pycharm.sh script.
   " >> ./post_install.txt
 else
-  mkdir -p $PYCHARM_INSTALL_PATH
-  tar -xzf pycharm-*.tar.gz -C $PYCHARM_INSTALL_PATH --strip-components=1
-  chown -R $USERNAME:$USERNAME $PYCHARM_INSTALL_PATH
+  sudo mkdir -p $PYCHARM_INSTALL_PATH
+  sudo tar -xzf pycharm-*.tar.gz -C $PYCHARM_INSTALL_PATH --strip-components=1
+  sudo chown -R $USERNAME:$USERNAME $PYCHARM_INSTALL_PATH
   rm ./Downloads/pycharm-*.tar.gz
-  #ln -s -f $PYCHARM_INSTALL_PATH/bin/pycharm.sh /usr/local/bin/pycharm
+  #sudo ln -s -f $PYCHARM_INSTALL_PATH/bin/pycharm.sh /usr/local/bin/pycharm
 fi
 echo "Installing PyCharm...DONE"
 

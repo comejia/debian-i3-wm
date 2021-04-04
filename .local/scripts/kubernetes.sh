@@ -5,27 +5,27 @@ set -e
 USERNAME=cmejia
 
 if [ "$(whoami)" != root ]; then
-	echo "Run this script '$0' as root"
-	exit 1
+  echo "Run this script '$0' as root"
+  exit 1
 fi
 
 echo "Installing Kubernetes..."
 # kubectl
-apt-get update
-apt-get install --yes apt-transport-https gnupg2 curl
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
-apt-get update
-apt-get install --yes kubelet kubeadm kubectl
+sudo apt-get update
+sudo apt-get install --yes apt-transport-https gnupg2 curl
+curl -sSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install --yes kubelet kubeadm kubectl
 # kubectl autocompletion
-kubectl completion bash | tee /etc/bash_completion.d/kubectl > /dev/null
+kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 #echo 'source <(kubectl completion bash)' >> ~/.bashrc
 
 # Minikube
 cd /tmp
 minikube_filename=minikube.deb
 curl -sSL https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb -O $minikube_filename
-apt install --yes ./$minikube_filename
+sudo apt install --yes ./$minikube_filename
 rm $minikube_filename
 
 cd /home/$USERNAME
