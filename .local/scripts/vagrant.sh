@@ -24,6 +24,9 @@ rm $vagrant_filename
 #apt-get update
 #apt-get install --yes -t testing vagrant vagrant-libvirt libvirt-daemon-system
 
+shell=$(echo "$SHELL" | awk -F "/bin/" '{ print $2 }')
+vagrant autocomplete install --"$shell"
+
 echo "Installing Vagrant...DONE"
 
 exit 0
