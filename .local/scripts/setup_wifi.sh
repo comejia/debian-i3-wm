@@ -1,22 +1,23 @@
 #!/bin/bash
 
-USERNAME=cmejia
 # Examples of firmware: firmware-realtek, firmware-atheros, firmware-iwlwifi.
 # Depends on wifi manufacturer
 WIFI_DRIVER=
+# Uncomment and set the above line if you only run this script
+#USERNAME=
 
-if [ "$(whoami)" != root ]; then
-  echo "Run this script '$0' as root"
+if [ -z "$USERNAME" ]; then
+  echo "'$0' Aborting install because USERNAME variable has not been set"
   exit 1
 fi
 
 echo "Setting WIFI driver..."
 
-cd /home/$USERNAME
+cd /home/"$USERNAME" || exit
 if [ -n "$WIFI_DRIVER" ]; then
   sudo apt-get update
-  sudo apt-get install --yes "$WIFI_DRIVER"
-  sudo apt-get install --yes network-manager
+  sudo apt-get install --yes -t testing "$WIFI_DRIVER"
+  sudo apt-get install --yes -t testing network-manager
   sudo systemctl restart Networkmanager
   echo "######## WIFI driver (success) ########
   Visit https://github.com/comejia/wiki/blob/main/linux-commands.md#network-manager-without-gui repository to get

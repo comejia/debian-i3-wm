@@ -2,15 +2,17 @@
 
 set -e
 
-USERNAME=cmejia
+# Uncomment and set the above line if you only run this script
+#USERNAME=
 
-if [ "$(whoami)" != root ]; then
-  echo "Run this script '$0' as root"
+if [ -z "$USERNAME" ]; then
+  echo "'$0' Aborting install because USERNAME variable has not been set"
   exit 1
 fi
 
 echo "Installing Kubernetes..."
-# kubectl
+
+##### kubectl
 sudo apt-get update
 sudo apt-get install --yes apt-transport-https gnupg2 curl
 curl -sSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -21,14 +23,15 @@ sudo apt-get install --yes kubelet kubeadm kubectl
 kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 #echo 'source <(kubectl completion bash)' >> ~/.bashrc
 
-# Minikube
+#### Minikube
 cd /tmp
 minikube_filename=minikube.deb
 curl -sSL https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb -O $minikube_filename
 sudo apt install --yes ./$minikube_filename
 rm $minikube_filename
 
-cd /home/$USERNAME
+# Setting Android environment variables
+cd /home/"$USERNAME"
 # Title to find in ~/.bashrc file. If title doesn't exist, it will append at the end of the file.
 MINIKUBE_VARS_TITLE="# Minikube vars"
 if [ "$(grep -cx "$MINIKUBE_VARS_TITLE" .bashrc)" -eq 0 ]; then

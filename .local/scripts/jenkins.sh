@@ -2,10 +2,11 @@
 
 set -e
 
-USERNAME=cmejia
+# Uncomment and set the above line if you only run this script
+#USERNAME=
 
-if [ "$(whoami)" != root ]; then
-  echo "Run this script '$0' as root"
+if [ -z "$USERNAME" ]; then
+  echo "'$0' Aborting install because USERNAME variable has not been set"
   exit 1
 fi
 
@@ -17,7 +18,7 @@ sudo apt-get update
 sudo apt-get install --yes jenkins
 sudo systemctl start jenkins.service
 
-cd /home/$USERNAME
+cd /home/"$USERNAME"
 echo "######## Jenkins ########
   Open http://localhost:8080 in a browser to finish the installation
   " >> ./post_install.txt
