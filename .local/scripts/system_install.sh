@@ -3,7 +3,7 @@
 if [ "$(whoami)" != "root" ]; then
   if [ -z "$(sudo -nl 2> /dev/null)" ]; then
     echo "This script '$0' should be run with sudo privileges or as root"
-    echo "Run as root 'user_to_sudoers.sh' script to add user to sudoers"
+    echo "Run as root 'user_to_sudoers.sh' script to add user in sudoers"
     exit 1
   fi
 fi
@@ -63,6 +63,7 @@ apt-get install -y xbindkeys fonts-noto-color-emoji xbacklight
 # Extra tools
 apt-get install --yes ranger rsync atool mtp-tools firefox-esr jq scrot xclip
 apt-get install --yes libreoffice-writer libreoffice-calc libreoffice-impress
+apt-get install --yes geany #geany-plugins
 
 # Windows manager
 apt-get install -y i3

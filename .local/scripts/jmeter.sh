@@ -2,11 +2,12 @@
 
 set -e
 
-USERNAME=cmejia
+# Uncomment and set the above line when you only run this script
+#USERNAME=
 JMETER_INSTALL_PATH=/opt/apache-jmeter
 
-if [ "$(whoami)" != root ]; then
-  echo "Run this script '$0' as root"
+if [ -z "$USERNAME" ]; then
+  echo "'$0' Aborting install because USERNAME variable has not been set"
   exit 1
 fi
 
@@ -20,7 +21,7 @@ jmeter_filename=jmeter.tgz
 wget -q "https://apache.zero.com.ar//jmeter/binaries/apache-jmeter-${latest_version}.tgz" -O $jmeter_filename
 sudo mkdir -p $JMETER_INSTALL_PATH
 sudo tar -xzf $jmeter_filename -C $JMETER_INSTALL_PATH --strip-components=1
-sudo chown -R $USERNAME:$USERNAME $JMETER_INSTALL_PATH
+sudo chown -R "$USERNAME":"$USERNAME" $JMETER_INSTALL_PATH
 rm $jmeter_filename
 #sudo ln -s -f $JMETER_INSTALL_PATH/bin/jmeter /usr/local/bin/jmeter
 #sudo ln -s -f $JMETER_INSTALL_PATH/bin/jmeter-server /usr/local/bin/jmeter-server
