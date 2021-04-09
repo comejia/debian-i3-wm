@@ -2,7 +2,7 @@
 
 set -e
 
-# Uncomment and set the above line if you only run this script
+# Uncomment and set the above line when you only run this script
 #USERNAME=
 
 if [ -z "$USERNAME" ]; then
@@ -14,8 +14,8 @@ echo "Installing Java (default)..."
 
 sudo apt-get update
 sudo apt-get install --yes default-jdk
-cd /home/"$USERNAME"
 
+cd /home/"$USERNAME"
 # Setting JAVA environment variables
 # Title to find in ~/.bashrc file. If title doesn't exist, it will append at the end of the file.
 JAVA_VARS_TITLE="# JAVA vars"

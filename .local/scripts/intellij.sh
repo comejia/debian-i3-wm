@@ -1,10 +1,13 @@
 #!/bin/bash
 
+#### NOTE ####
+# Before run this script you need download IntelliJ from https://www.jetbrains.com/idea/download/#section=linux
+
 set -e
 
-INTELLIJ_INSTALL_PATH=/opt/intellij-idea
-# Uncomment and set the above line if you only run this script
+# Uncomment and set the above line when you only run this script
 #USERNAME=
+INTELLIJ_INSTALL_PATH=/opt/intellij-idea
 
 if [ -z "$USERNAME" ]; then
   echo "'$0' Aborting install because USERNAME variable has not been set"

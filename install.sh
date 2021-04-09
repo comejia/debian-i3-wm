@@ -1,14 +1,23 @@
 #!/bin/bash
 
-##### Set username for all scripts
+#### Check NOTE's in the following scripts:
+# - android_studio.sh
+# - intellij.sh
+# - pycharm.sh
+# - git_setup.sh
+# - wifi_setup
+
+##### Global variables
+# Set username in many scripts
 export USERNAME=
 
-##### Variables to setup system
+##### Variables to setup the system
 create_basic_dirs=yes
 copy_config_files=yes
 install_system_packages=yes
 install_dev_applications=no
 
+#### Check if a user (not root) has privileges
 function check_privileges() {
   if [ "$(whoami)" != "root" ]; then
     if [ -z "$(sudo -nl 2> /dev/null)" ]; then
@@ -19,6 +28,7 @@ function check_privileges() {
   fi
 }
 
+#### Check if USERNAME var is set
 function is_user_set() {
   if [ -z "$USERNAME" ]; then
     echo "Aborting install because USERNAME variable has not been set"
@@ -43,27 +53,26 @@ fi
 if [ "$copy_config_files" == yes ]; then
   cp -r .config/ /home/"$USERNAME"/.config/
   cp -r .local/ /home/"$USERNAME"/.local/
-  cp -r bin/ /home/"$USERNAME"/bin/
   sudo cp etc/apt/preferences.d/custom-preferences /etc/apt/preferences.d/
   cp .bash_aliases /home/"$USERNAME"/
   cp .Xresources /home/"$USERNAME"/
   cp .xsessionrc /home/"$USERNAME"/
 fi
 
-#### Install main system packages
+#### Main system packages
 if [ "$install_system_packages" == yes ]; then
   ./system_install.sh
 fi
 
-#### Install apps to develop
+#### Apps to develop
 # Comment or uncomment the app you want
 if [ "$install_dev_applications" == yes ]; then
   cd .local/scripts || exit
-  # Containers tools
+  ## Containers tools
   ./docker.sh
   ./kubernetes.sh
 
-  # IDE's
+  ## IDE's
   ./android_studio.sh
   ./intellij.sh
   ./vscode.sh
@@ -71,7 +80,7 @@ if [ "$install_dev_applications" == yes ]; then
   #./atom.sh
   #./arduino.sh
 
-  # Automation tools
+  ## Automation tools
   ./jenkins.sh
   ./node.sh
   ./appium.sh
@@ -80,7 +89,7 @@ if [ "$install_dev_applications" == yes ]; then
   #./jmeter.sh
   #./fiddler.sh
 
-  # Virtual machines
+  ## Virtual machines
   ./kvm.sh
   ./virtualbox.sh
   ./vagrant.sh

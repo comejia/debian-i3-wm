@@ -1,10 +1,12 @@
 #!/bin/bash
 
-# Examples of firmware: firmware-realtek, firmware-atheros, firmware-iwlwifi.
-# Depends on wifi manufacturer
-WIFI_DRIVER=
-# Uncomment and set the above line if you only run this script
+#### NOTE ####
+# Before run this script you should set WIFI_DRIVER var
+# Examples of firmware: firmware-realtek, firmware-atheros, firmware-iwlwifi. Depends on wifi manufacturer
+
+# Uncomment and set the above line when you only run this script
 #USERNAME=
+WIFI_DRIVER=
 
 if [ -z "$USERNAME" ]; then
   echo "'$0' Aborting install because USERNAME variable has not been set"
@@ -25,7 +27,7 @@ if [ -n "$WIFI_DRIVER" ]; then
   " >> ./post_install.txt
 else
   echo "######## WIFI driver (failure) ########
-  Please set WIFI_DRIVER variable. Then rerun setup_wifi.sh script.
+  Please set WIFI_DRIVER variable. Then rerun wifi_setup.sh script.
   $(inxi -N)
   " >> ./post_install.txt
   exit 1

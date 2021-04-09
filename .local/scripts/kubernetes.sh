@@ -2,7 +2,7 @@
 
 set -e
 
-# Uncomment and set the above line if you only run this script
+# Uncomment and set the above line when you only run this script
 #USERNAME=
 
 if [ -z "$USERNAME" ]; then
@@ -16,7 +16,8 @@ echo "Installing Kubernetes..."
 sudo apt-get update
 sudo apt-get install --yes apt-transport-https gnupg2 curl
 curl -sSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" \
+  | sudo tee /etc/apt/sources.list.d/kubernetes.list > /dev/null
 sudo apt-get update
 sudo apt-get install --yes kubelet kubeadm kubectl
 # kubectl autocompletion

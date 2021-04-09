@@ -2,9 +2,9 @@
 
 set -e
 
-POSTMAN_INSTALL_PATH=/opt/Postman
-# Uncomment and set the above line if you only run this script
+# Uncomment and set the above line when you only run this script
 #USERNAME=
+POSTMAN_INSTALL_PATH=/opt/Postman
 
 if [ -z "$USERNAME" ]; then
   echo "'$0' Aborting install because USERNAME variable has not been set"
@@ -12,7 +12,6 @@ if [ -z "$USERNAME" ]; then
 fi
 
 echo "Installing Postman..."
-
 
 cd /tmp
 postman_filename=postman.tar.gz

@@ -2,8 +2,8 @@
 
 set -e
 
-# Uncomment and set the above line if you only run this script
-#USERNAME=
+# Set a user who will have sudo privileges
+USERNAME=
 
 if [ -z "$USERNAME" ]; then
   echo "'$0' Aborting install because USERNAME variable has not been set"

@@ -2,7 +2,7 @@
 
 set -e
 
-# Uncomment and set the above line if you only run this script
+# Uncomment and set the above line when you only run this script
 #USERNAME=
 
 if [ -z "$USERNAME" ]; then

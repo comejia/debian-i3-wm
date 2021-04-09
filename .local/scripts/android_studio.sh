@@ -1,10 +1,13 @@
 #!/bin/bash
 
+#### NOTE ####
+# Before run this script you need download Android Studio from https://developer.android.com/studio
+
 set -e
 
-ANDROID_INSTALL_PATH=/opt/android-studio
-# Uncomment and set the above line if you only run this script
+# Uncomment and set the above line when you only run this script
 #USERNAME=
+ANDROID_INSTALL_PATH=/opt/android-studio
 
 if [ -z "$USERNAME" ]; then
   echo "'$0' Aborting install because USERNAME variable has not been set"

@@ -2,9 +2,9 @@
 
 set -e
 
-ARDUINO_INSTALL_PATH=/opt/arduino
-# Uncomment and set the above line if you only run this script
+# Uncomment and set the above line when you only run this script
 #USERNAME=
+ARDUINO_INSTALL_PATH=/opt/arduino
 
 if [ -z "$USERNAME" ]; then
   echo "'$0' Aborting install because USERNAME variable has not been set"

@@ -1,10 +1,13 @@
 #!/bin/bash
 
+#### NOTE ####
+# Before run this script you need download PyCharm from https://www.jetbrains.com/pycharm/download/#section=linux
+
 set -e
 
-PYCHARM_INSTALL_PATH=/opt/pycharm
-# Uncomment and set the above line if you only run this script
+# Uncomment and set the above line when you only run this script
 #USERNAME=
+PYCHARM_INSTALL_PATH=/opt/pycharm
 
 if [ -z "$USERNAME" ]; then
   echo "'$0' Aborting install because USERNAME variable has not been set"

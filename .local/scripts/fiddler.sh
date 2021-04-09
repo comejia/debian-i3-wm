@@ -2,9 +2,9 @@
 
 set -e
 
-FIDDLER_BIN_PATH=/home/$USERNAME/bin/fiddler
-# Uncomment and set the above line if you only run this script
+# Uncomment and set the above line when you only run this script
 #USERNAME=
+FIDDLER_BIN_PATH=/home/$USERNAME/bin/fiddler
 
 if [ -z "$USERNAME" ]; then
   echo "'$0' Aborting install because USERNAME variable has not been set"

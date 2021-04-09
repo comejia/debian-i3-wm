@@ -2,9 +2,9 @@
 
 set -e
 
-APPIUM_DESKTOP_BIN_PATH=/home/$USERNAME/bin/appium-desktop
-# Uncomment and set the above line if you only run this script
+# Uncomment and set the above line when you only run this script
 #USERNAME=
+APPIUM_DESKTOP_BIN_PATH=/home/$USERNAME/bin/appium-desktop
 
 if [ -z "$USERNAME" ]; then
   echo "'$0' Aborting install because USERNAME variable has not been set"
