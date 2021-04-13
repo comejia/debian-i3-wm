@@ -6,6 +6,7 @@
 # - pycharm.sh
 # - git_setup.sh
 # - wifi_setup
+# - system_packages.sh
 
 ##### Global variables
 # Set username in many scripts
@@ -61,7 +62,7 @@ fi
 
 #### Main system packages
 if [ "$install_system_packages" == yes ]; then
-  ./system_install.sh
+  ./system_packages.sh
 fi
 
 #### Apps to develop
