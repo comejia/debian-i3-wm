@@ -19,7 +19,7 @@ echo "Installing PyCharm..."
 cd /home/"$USERNAME"
 # Check if app exists
 if [ ! -e "$(ls ./Downloads/ | grep "pycharm-*.tar.gz")" ]; then
-  echo "######## PyCharm ########
+  echo "######## PyCharm (FAILED) ########
   Download PyCharm from 'https://www.jetbrains.com/pycharm/download/#section=linux' in ~/Download folder
   Then rerun pycharm.sh script.
   " >> ./post_install.txt
