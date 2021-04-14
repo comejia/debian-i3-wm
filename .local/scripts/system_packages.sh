@@ -40,7 +40,7 @@ if [ -z "$LINUX_IMAGE" ] || [ -z "$LINUX_HEADERS" ]; then
   You need set LINUX_IMAGE and LINUX_HEADERS to update kernel image
   Execute apt-cache search linux-image to select the flavour
   "
-  echo "Updating kernel image...FAIL"
+  echo "Updating kernel image...FAILED"
 else
   sudo apt-get install --yes "$LINUX_IMAGE" "$LINUX_HEADERS"
   echo "Updating kernel image...DONE"

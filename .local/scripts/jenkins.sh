@@ -19,7 +19,7 @@ sudo apt-get install --yes jenkins
 sudo systemctl start jenkins.service
 
 cd /home/"$USERNAME"
-echo "######## Jenkins ########
+echo "######## Jenkins (SUCCESS) ########
   Open http://localhost:8080 in a browser to finish the installation
   " >> ./post_install.txt
 

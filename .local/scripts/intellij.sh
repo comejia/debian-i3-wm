@@ -19,7 +19,7 @@ echo "Installing IntelliJ IDEA..."
 cd /home/"$USERNAME"
 # Check if app exists
 if [ ! -e "$(ls ./Downloads | grep "ideaI*-*.tar.gz")" ]; then
-  echo "######## IntelliJ IDEA ########
+  echo "######## IntelliJ IDEA (FAILED) ########
   Download IntelliJ Idea from 'https://www.jetbrains.com/idea/download/#section=linux' in ~/Download folder
   Then rerun intellij.sh script.
   " >> ./post_install.txt

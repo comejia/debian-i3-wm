@@ -10,6 +10,7 @@ set -e
 #USERNAME=
 GIT_USER=
 GIT_EMAIL=
+BRANCH_NAME=
 
 if [ -z "$USERNAME" ]; then
   echo "'$0' Aborting install because USERNAME variable has not been set"
@@ -23,18 +24,20 @@ sudo apt-get install --yes git
 
 cd /home/"$USERNAME"
 if [ -z "$GIT_USER" ] || [ -z "$GIT_EMAIL" ]; then
-  echo "######## Git Config ########
+  echo "######## Git Config (FAILED) ########
   You need set GIT_USER and GIT_EMAIL.
   Execute in console next command:
     git config --global user.name <git_user>
     git config --global user.email <git_email>
     git config --global pull.rebase false
+    git config --global init.defaultBranch <branch_name>
   or rerun this script after to config the variables.
   " >> ./post_install.txt
 else
   git config --global user.name "$GIT_USER"
   git config --global user.email "$GIT_EMAIL"
   git config --global pull.rebase false
+  git config --global init.defaultBranch "$BRANCH_NAME"
 fi
 
 #### git-prompt
