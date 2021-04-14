@@ -1,12 +1,5 @@
 #!/bin/bash
 
-#### Check NOTE's in the following scripts:
-# - android_studio.sh
-# - intellij.sh
-# - pycharm.sh
-# - git_setup.sh
-# - wifi_setup
-
 ##### Global variables
 # Set username in many scripts
 export USERNAME=
@@ -20,9 +13,10 @@ install_dev_applications=no
 #### Check if a user (not root) has privileges
 function check_privileges() {
   if [ "$(whoami)" != "root" ]; then
-    if [ -z "$(sudo -nl 2> /dev/null)" ]; then
+    if [ -z "$(sudo -nl 2>/dev/null)" ]; then
+      echo "#### Checking privileges (FAILED) ####"
       echo "This script '$0' should be run with sudo privileges or as root"
-      echo "Run as root 'sudoers.sh' script to add user in sudoers"
+      echo "Run as root '.local/scripts/sudoers.sh' script to add user in sudoers group"
       exit 1
     fi
   fi
@@ -34,6 +28,44 @@ function is_user_set() {
     echo "Aborting install because USERNAME variable has not been set"
     exit 1
   fi
+}
+
+#### Reboot system
+function reboot_system() {
+  time=$1
+  while [ "$time" -gt 0 ]; do
+    echo "Rebooting system in $time..."
+    sleep 1
+    ((time--))
+  done
+  sudo reboot
+}
+
+#### Welcome message before install packages
+function welcome_message() {
+  echo "
+              Welcome to installer script!!!
+    Before to continue check the notes in the following files:
+        - android_studio.sh
+        - intellij.sh
+        - pycharm.sh
+        - git_setup.sh
+        - wifi_setup
+        - system_packages.sh
+  "
+  read -rp "Press [ENTER] to continue or [CTRL+C] to abort"
+}
+
+#### Final message if the installation finished successful
+function final_message() {
+  echo "
+              Installation finished!!!
+    Please check ~/post_install.txt file for errors or
+    final comments...
+  "
+  sudo apt autoremove --yes
+  sudo apt clean
+  reboot_system 10
 }
 
 check_privileges
@@ -59,15 +91,22 @@ if [ "$copy_config_files" == yes ]; then
   cp .xsessionrc /home/"$USERNAME"/
 fi
 
+welcome_message
+
 #### Main system packages
 if [ "$install_system_packages" == yes ]; then
-  ./system_install.sh
+  ./system_packages.sh
 fi
 
 #### Apps to develop
 # Comment or uncomment the app you want
 if [ "$install_dev_applications" == yes ]; then
   cd .local/scripts || exit
+  ## Setting
+  ./git_setup.sh
+  ./java_setup.sh
+  ./wifi_setup.sh
+
   ## Containers tools
   ./docker.sh
   ./kubernetes.sh
@@ -93,4 +132,9 @@ if [ "$install_dev_applications" == yes ]; then
   ./kvm.sh
   ./virtualbox.sh
   ./vagrant.sh
+
+  # Others
+  ./google_chrome.sh
 fi
+
+final_message

@@ -19,7 +19,7 @@ echo "Installing Android Studio..."
 cd /home/"$USERNAME"
 # Check if app exists
 if [ ! -e "$(ls ./Downloads | grep "android-studio-*.tar.gz")" ]; then
-  echo "######## Android Studio ########
+  echo "######## Android Studio (FAILED) ########
   Download Android Studio from 'https://developer.android.com/studio' in ~/Download folder.
   Then rerun android_studio.sh script.
   " >> ./post_install.txt
