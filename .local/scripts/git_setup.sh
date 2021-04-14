@@ -10,7 +10,7 @@ set -e
 #USERNAME=
 GIT_USER=
 GIT_EMAIL=
-BRANCH_NAME=
+DEFAULT_BRANCH=
 
 if [ -z "$USERNAME" ]; then
   echo "'$0' Aborting install because USERNAME variable has not been set"
@@ -30,14 +30,14 @@ if [ -z "$GIT_USER" ] || [ -z "$GIT_EMAIL" ]; then
     git config --global user.name <git_user>
     git config --global user.email <git_email>
     git config --global pull.rebase false
-    git config --global init.defaultBranch <branch_name>
+    git config --global init.defaultBranch <default_branch>
   or rerun this script after to config the variables.
   " >> ./post_install.txt
 else
   git config --global user.name "$GIT_USER"
   git config --global user.email "$GIT_EMAIL"
   git config --global pull.rebase false
-  git config --global init.defaultBranch "$BRANCH_NAME"
+  git config --global init.defaultBranch "$DEFAULT_BRANCH"
 fi
 
 #### git-prompt
