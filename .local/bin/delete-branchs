@@ -3,9 +3,11 @@
 
 git pull
 
-for bra in $(git branch --merged);
+branchs=$(git branch --merged | sed -E '/^\*/d')
+
+for branch in $branchs;
 do
-	git branch -d $bra;
+	git branch -d $branch;
 done
 
 git remote prune origin
