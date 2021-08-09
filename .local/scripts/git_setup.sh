@@ -56,6 +56,14 @@ fi
   " >> .bashrc
 fi
 
+#### git-flow
+sudo apt-get install --yes git-flow
+
+git config --global gitflow.feature.finish.push yes
+git config --global gitflow.bugfix.finish.push yes
+git config --global gitflow.hotfix.finish.push yes
+
+
 echo "Git configuration...DONE"
 
 exit 0
