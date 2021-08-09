@@ -57,7 +57,7 @@ fi
 fi
 
 #### git-flow
-sudo apt-get install --yes git-flow
+sudo apt-get install --yes -t testing git-flow
 
 git config --global gitflow.feature.finish.push yes
 git config --global gitflow.bugfix.finish.push yes
