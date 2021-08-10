@@ -62,7 +62,7 @@ sudo apt-get install --yes -t testing git-flow
 git config --global gitflow.feature.finish.push yes
 git config --global gitflow.bugfix.finish.push yes
 git config --global gitflow.hotfix.finish.push yes
-
+git config --global gitflow.release.finish.push yes
 
 echo "Git configuration...DONE"
 
